@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracking Pengiriman Bahan Ajar - SITTA</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/tracking.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+  /* Timeline Style */
+  #perjalanan-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 3px solid #3085d6;
+    margin-top: 15px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: #3085d6;
+    border-radius: 50%;
+  }
+  .timeline-dot.done {
+    background-color: green;
+  }
+  .timeline-time {
+    font-size: 12px;
+    color: gray;
+  }
+  .timeline-text {
+    font-size: 14px;
+    color: #222;
+    margin-top: 3px;
+  }
+</style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <navbar>
+    <div class="nav-container">
+      <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Home</a></li>
+        <li><a href="stock.html">Informasi Bahan Ajar</a></li>
+        <li><a href="tracking.html" class="active">Tracking Pengiriman</a></li>
+        <li class="dropdown">
+          <p class="dropbtn">Laporan</p>
+          <div class="dropdown-content">
+            <a href="#">Monitoring Progress DO Bahan Ajar</a>
+            <a href="#">Rekap Bahan Ajar</a>
+          </div>
+        </li>
+        <li><a href="#">Histori Transaksi</a></li>
+        <li><button id="logout-btn">Keluar</button></li>
+      </ul>
+    </div>
+  </navbar>
+
+  <!-- KONTEN DASHBOARD -->
+  <div class="dashboard-content">
+    <div class="content-card">
+      <div class="container">
+        <form id="tracking-form">
+          <div class="search-section">
+            <h2>Tracking Pengiriman Bahan Ajar</h2>
+            <label class="search-label">Nomor DO / Resi</label>
+            <div class="search-box">
+              <input
+                type="text"
+                id="nomor-do"
+                class="search-input"
+                placeholder="Masukkan nomor DO (contoh: 2023001234)"
+                required
+              />
+              <button type="submit" class="track-button">Lacak</button>
+            </div>
+            <small>Contoh nomor DO: 2023001234 atau 2023005678</small>
+          </div>
+        </form>
+
+        <!-- HASIL TRACKING -->
+        <div id="tracking-result" style="display: none;">
+          <div class="result-card">
+            <h3 id="nama-penerima"></h3>
+            <p><strong>Nomor DO:</strong> <span id="nomor-do-display"></span></p>
+            <p><strong>Status:</strong> <span id="status-pengiriman"></span></p>
+            <p><strong>Ekspedisi:</strong> <span id="ekspedisi-detail"></span></p>
+            <p><strong>Tanggal Kirim:</strong> <span id="tanggal-kirim-detail"></span></p>
+            <p><strong>Kode Paket:</strong> <span id="paket-detail"></span></p>
+            <p><strong>Total:</strong> <span id="total-detail"></span></p>
+
+            <h4>Riwayat Perjalanan:</h4>
+            <ul id="perjalanan-list"></ul>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
